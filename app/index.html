@@ -2,7 +2,7 @@
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>knockout</title>
+        <title>knockout editor</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
@@ -30,8 +30,8 @@
         <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Patient</a></li>
-                    <li><a href="#">Treatment Arm</a></li>
+                    <li id="btn-patient" class="active"><a href="#">Patient</a></li>
+                    <li id="btn-treatmentArm" class="active"><a href="#">Treatment Arm</a></li>
                 </ul>
                 <h3 class="text-muted">knockout</h3>
             </div>
@@ -50,18 +50,29 @@
 -->
     <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="#">Simple demonstration of knockout using Patient and Treatment Arm data.</a>
+            <a class="brand" href="#">Edit Patient and Treatment Arm data</a>
         </div>
     </div>
     <div id="main" class="container">
-<p>Full name: <strong data-bind="text: fullName"></strong></p>
-
-<p>First name: <strong data-bind="text: firstName"></strong></p>
-<p>Last name: <strong data-bind="text: lastName"></strong></p>
-
-<p>First name: <input data-bind="value: firstName" /></p>
-<p>Last name: <input data-bind="value: lastName" /></p>
-
+        <div id="match-patient">
+            <h3>Patient Data</h3>
+            <p>Id: <strong data-bind="text: _id"></strong></p>
+            <p>Patient Sequence Number: <strong data-bind="text: patientSequenceNumber"></strong></p>
+            <p>Registration Date: <strong data-bind="text: registrationDate"></strong></p>
+            <hr>
+            <p>Patient Sequence Number: <input data-bind="value: patientSequenceNumber" /></p>
+            <button class="btn btn-primary">Save</button>
+        </div>
+        <div id="match-treatmentArm" style="display:none;">
+            <h3>Treatment Arm Data</h3>
+            <p>Id: <strong data-bind="text: _id"></strong></p>
+            <p>Name: <strong data-bind="text: name"></strong></p>
+            <p>Description: <strong data-bind="text: description"></strong></p>
+            <p>Status: <strong data-bind="text: treatmentArmStatus"></strong></p>
+            <select data-bind="options: availableStatus, value: treatmentArmStatus" ></select>
+            <div></div>
+            <button class="btn btn-primary">Save</button>
+        </div>
     </div>
     <script type="text/javascript">
 
