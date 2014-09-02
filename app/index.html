@@ -19,6 +19,14 @@
         <script src="../bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<style>
+.model {
+    border: 2px solid;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #888888;
+    padding: 15px;
+}
+</style>
 
     </head>
     <body>
@@ -55,21 +63,29 @@
     </div>
     <div id="main" class="container">
         <div id="match-patient">
-            <h3>Patient Data</h3>
-            <p>Id: <strong data-bind="text: _id"></strong></p>
-            <p>Patient Sequence Number: <strong data-bind="text: patientSequenceNumber"></strong></p>
-            <p>Registration Date: <strong data-bind="text: registrationDate"></strong></p>
+            <div class="model">
+                <h3>Patient Data</h3>
+                <p>Id: <strong data-bind="text: _id"></strong></p>
+                <p>Patient Sequence Number: <strong data-bind="text: patientSequenceNumber"></strong></p>
+                <p>Registration Date: <strong data-bind="text: registrationDate"></strong></p>
+            </div>
             <hr>
             <p>Patient Sequence Number: <input data-bind="value: patientSequenceNumber" /></p>
             <button class="btn btn-primary">Save</button>
         </div>
         <div id="match-treatmentArm" style="display:none;">
-            <h3>Treatment Arm Data</h3>
-            <p>Id: <strong data-bind="text: _id"></strong></p>
-            <p>Name: <strong data-bind="text: name"></strong></p>
-            <p>Description: <strong data-bind="text: description"></strong></p>
-            <p>Status: <strong data-bind="text: treatmentArmStatus"></strong></p>
-            <select data-bind="options: availableStatus, value: treatmentArmStatus" ></select>
+            <div class="model">
+                <h3>Treatment Arm Data</h3>
+                <p>Id: <strong data-bind="text: _id"></strong></p>
+                <p>Name: <strong data-bind="text: name"></strong></p>
+                <p>Description: <strong data-bind="text: description"></strong></p>
+                <p>Status: <strong data-bind="text: treatmentArmStatus"></strong></p>
+            </div>
+            <hr>
+             <p>Name: <input data-bind="value: name" /></p>
+              <p>Description: <input data-bind="value: description" style="width:500px;" /></p>
+
+            <p>Status: <select data-bind="options: availableStatus, value: treatmentArmStatus" ></select></p>
             <div></div>
             <button class="btn btn-primary">Save</button>
         </div>
